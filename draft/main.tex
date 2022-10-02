@@ -1,0 +1,107 @@
+\documentclass[12pt]{amsart}
+
+%-------Packages---------
+\usepackage{amssymb,amsfonts}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage[all,arc]{xy}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\usepackage{enumerate}
+\usepackage{bbm}
+\usepackage{dsfont}
+\usepackage{mathrsfs}
+\usepackage{tikz-cd}
+\usepackage{import}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage{tikz}
+
+\usepackage[left=1in,top=1in,right=1in,bottom=1in]{geometry}
+
+\usepackage{mathtools}
+
+%--------Theorem Environments--------
+%theoremstyle{plain} --- default
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{conj}[thm]{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\newtheorem{defns}[thm]{Definitions}
+\newtheorem{con}[thm]{Construction}
+\newtheorem{example}[thm]{Example}
+\newtheorem{exmps}[thm]{Examples}
+\newtheorem{notn}[thm]{Notation}
+\newtheorem{notns}[thm]{Notations}
+\newtheorem{addm}[thm]{Addendum}
+\newtheorem{exer}[thm]{Exercise}
+\newtheorem{rmk}[thm]{Remark}
+\newtheorem{fct}[thm]{Fact}
+\newtheorem{quest}[thm]{Question}
+\newtheorem{obsv}[thm]{Observation}
+
+%----------- my commands -------------
+
+
+%%%%%%%%% mathbb %%%%%%%%
+
+\def\N{\mathbb{N}}
+\def\Z{\mathbb{Z}}
+\def\Q{\mathbb{Q}}
+\def\R{\mathbb{R}}
+\def\C{\mathbb{C}}
+
+
+% comments
+\newcommand{\cy}[1]{\textcolor{red}{#1}}
+
+% Meta data
+
+\title{Schur polynomials}
+\author{Claudia He Yun}
+\address{MPI MiS, 04103 Leipzig, Germany}
+\email{\url{clyun@mis.mpg.de}}
+
+\begin{document}
+
+%\begin{abstract}
+%\end{abstract}
+	
+\maketitle
+
+\section{Question}
+The irreducible representations of the special unitary group $SU(3)$ are indexed by Young diagrams with exactly two rows, i.e., partitions $\lambda$ with two parts. Now consider Schur polynomials in three variables $x_1,x_2,x_3$ obtained from these Young diagrams. We obtain the monomials in $s_\lambda$ by enumerating semistandard Young tableaux of shape $\lambda$.
+
+\begin{example}
+We have \[s_{2,1}(x_1,x_2,x_3) = x_1^2x_2+x_1^2x_3 + x_1x_2^2 + 2x_1x_2x_3 + x_1x_3^2 + x_2^2x_3 + x_2x_3^2\]
+\end{example}
+
+Let $P = \sum c_\lambda s_\lambda$, $c_\lambda > 0$, be a positive linear combination of Schur polynomials. Given a vector $v=(a,b,c)$ such that $a+b+c=0$, we may perform the substitution $P_v(z) = P(z^a,z^b,z^c)$.
+
+\begin{example}
+Let $P = s_{2,1}$. If $v = (1,0,-1)$, then $P_v(z) = z^2 + 2z +2+ 2z^{-1} + z^{-2}$. If $w = (1,2,-3)$, then $P_w(z) = z^5+z^4+z +2+z^{-1} + z^{-4} + z^{-5}$.
+\end{example}
+
+\begin{quest}
+Can we find $P$ and vectors $v\neq w \neq 0$ such that $P_v(z) = P_w(z)$?
+\end{quest}
+
+\begin{obsv}
+When $P = s_{2,1}$, we have $P_v(z) = P_{-v}(z)$. However, this is not true in general. For example, $s_{2,2}(1,2,-3)(z) = z^6 + z^2 + z + z^{-2} + z^{-3} + z^{-4}$ but $s_{2,2}(-1,-2,3)(z) = z^4 + z^3 + z^2 + z^{-1} + z^{-2} + z^{-6}$.
+\end{obsv}
+
+\begin{lem}
+In $P_{(a,b,c)}(z)$, the sum of the exponents of $z$ is zero.
+\end{lem}
+
+\begin{proof}
+The statement reduces to the case where $P$ is a single Schur polynomial. The sum of the exponents of $x_1$ in $P$ must be the same as that of $x_2$, which must be the same as that of $x_3$, because otherwise $P$ is not symmetric. Let that number be $k$. In $P_v(z)$, the sum of exponents of $z$ is $(a+b+c)k$, but $a+b+c=0$. 
+\end{proof}
+
+\bibliographystyle{alpha}
+\bibliography{reference}
+
+\end{document}
